@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.support.multidex.MultiDexApplication;
 
 import com.tencent.ilivesdk.ILiveSDK;
 import com.tencent.livesdk.ILVLiveConfig;
@@ -16,7 +17,7 @@ import ilive.model.MessageObservable;
  * Created by Administrator on 2017/7/17.
  */
 
-public class MainApplication extends Application {
+public class MainApplication extends MultiDexApplication {
     private static Handler mHandler;
     private static long mMainThreadId;
     private static Thread mMainThread;
