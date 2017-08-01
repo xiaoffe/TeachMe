@@ -56,5 +56,7 @@ dependencies {
     compile 'com.tencent.ilivefilter:ilivefilter:1.1.15'
     compile 'com.tencent.rtmpsdk:rtmpsdk:1.0.1'
 
-    compile 'com.android.support:multidex:'
+//    compile 'com.android.support:multidex:'
+    compile 'com.android.support:multidex:1.0.0'
+
 }

@@ -1,6 +1,5 @@
 package yxf.teachme;
 
-import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.StrictMode;
