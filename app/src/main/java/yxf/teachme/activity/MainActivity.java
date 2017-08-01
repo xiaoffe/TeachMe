@@ -9,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.tencent.ilivesdk.ILiveCallBack;
+import com.tencent.ilivesdk.core.ILiveLoginManager;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +96,24 @@ public class MainActivity extends BaseActivity {
         View leftMenuView = mLeftMenuHolder.getRootView();
         //把返回的界面设置到坑上即可
         mLeftMenuContainer.addView(leftMenuView);
+        leftMenuView.findViewById(R.id.left_menu_exit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ILiveLoginManager.getInstance().iLiveLogout(new ILiveCallBack() {
+                    @Override
+                    public void onSuccess(Object data) {
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(String module, int errCode, String errMsg) {
+
+                    }
+                });
+            }
+        });
     }
 
     private void resetOthresTab() {
