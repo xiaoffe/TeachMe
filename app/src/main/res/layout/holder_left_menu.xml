@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="@drawable/personal_info"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:padding="16dp">
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <yxf.teachme.ui.view.RippleView
+                android:id="@+id/left_menu_safe_text"
+                style="@style/left_menu_text_style"
+                android:clickable="true"
+                android:drawableLeft="@drawable/safe"
+                android:text="安全"
+                ripple:alpha_Factor="0.7"
+                ripple:ripple_Color="#D2D2D2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"/>
+
+
+            <yxf.teachme.ui.view.RippleView
+                android:id="@+id/left_menu_about_us"
+                style="@style/left_menu_text_style"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableLeft="@drawable/about_us"
+                android:text="关于"
+                ripple:alpha_Factor="0.7"
+                ripple:ripple_Color="#D2D2D2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"/>
+
+            <yxf.teachme.ui.view.RippleView
+                android:id="@+id/left_menu_share"
+                style="@style/left_menu_text_style"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableLeft="@drawable/share"
+                android:text="分享"
+                ripple:alpha_Factor="0.7"
+                ripple:ripple_Color="#D2D2D2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"/>
+
+            <yxf.teachme.ui.view.RippleView
+                android:id="@+id/left_menu_exit"
+                style="@style/left_menu_text_style"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableLeft="@drawable/exit"
+                android:text="退出"
+                ripple:alpha_Factor="0.7"
+                ripple:ripple_Color="#D2D2D2"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

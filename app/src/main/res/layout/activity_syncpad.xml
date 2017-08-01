@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:expandable_selector="http://schemas.android.com/apk/res-auto">
+    <!--<ImageView-->
+        <!--android:id="@+id/show"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+    <!--<LinearLayout-->
+        <!--android:id="@+id/top_toolbar"-->
+        <!--android:background="@color/colorGray"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingTop="5dp"-->
+        <!--android:paddingEnd="5dp"-->
+        <!--android:gravity="end"-->
+        <!--android:orientation="horizontal">-->
+        <!--<com.tencent.ilivesdk.view.AVRootView-->
+            <!--android:background="@color/colorGray"-->
+            <!--android:id="@+id/arv_root"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="160dp"/>-->
+    <!--</LinearLayout>-->
+    <com.tencent.ilivesdk.view.AVRootView
+        android:id="@+id/arv_root"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="50dp"
+        android:layout_height="80dp"/>
+
+    <yxf.teachme.ui.view.doodle.Doodle
+        android:id="@+id/mDoodle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+    </yxf.teachme.ui.view.doodle.Doodle>
+
+    <ImageView
+        android:background="@color/colorGray"
+        android:id="@+id/front"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_syncpad_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <!--&lt;!&ndash;笔&ndash;&gt;-->
+
+        <yxf.teachme.ui.view.expandableselector.ExpandableSelector
+            android:id="@+id/es_sizes"
+            android:layout_width="@dimen/item_size"
+            android:layout_height="@dimen/item_size"
+            android:layout_marginLeft="@dimen/syncpad_action_margin"/>
+
+        <yxf.teachme.ui.view.expandableselector.ExpandableSelector
+            android:id="@+id/es_colors"
+            android:layout_width="@dimen/item_size"
+            android:layout_height="@dimen/item_size"
+            android:layout_marginLeft="@dimen/syncpad_action_margin">
+
+            <Button
+                android:id="@+id/bt_colors"
+                android:text="COLORS"
+                style="@style/ExpandableItemStyleHeader"/>
+        </yxf.teachme.ui.view.expandableselector.ExpandableSelector>
+        <!--&lt;!&ndash;形状&ndash;&gt;-->
+        <!--<yxf.teachme.ui.view.expandableselector.ExpandableSelector-->
+            <!--android:id="@+id/es_sizes2"-->
+            <!--android:layout_width="@dimen/item_size"-->
+            <!--android:layout_height="@dimen/item_size"-->
+            <!--android:layout_marginLeft="@dimen/syncpad_action_margin"-->
+            <!--android:layout_margin="@dimen/expandable_selector_margin"/>-->
+
+        <!--&lt;!&ndash;颜色&ndash;&gt;-->
+        <!--<yxf.teachme.ui.view.expandableselector.ExpandableSelector-->
+            <!--android:id="@+id/es_sizes3"-->
+            <!--android:layout_width="@dimen/item_size"-->
+            <!--android:layout_height="@dimen/item_size"-->
+            <!--android:layout_marginLeft="@dimen/syncpad_action_margin"-->
+            <!--android:layout_margin="@dimen/expandable_selector_margin"/>/>-->
+
+        <!--撤销-->
+        <ImageView
+            android:id="@+id/es_backward"
+            android:layout_width="@dimen/item_size"
+            android:layout_height="@dimen/item_size"
+            android:layout_marginLeft="@dimen/syncpad_action_margin"
+            android:background="@drawable/pad_icon_backword_selected"/>
+        <ImageView
+            android:id="@+id/iv_test"
+            android:layout_width="@dimen/item_size"
+            android:layout_height="@dimen/item_size"
+            android:layout_marginLeft="@dimen/syncpad_action_margin"
+            android:background="@drawable/tv_turn_up"/>
+
+    </LinearLayout>
+</RelativeLayout>

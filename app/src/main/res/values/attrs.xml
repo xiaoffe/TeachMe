@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="CoordinatorTabLayout">
+        <attr name="contentScrim" format="color" />
+        <attr name="tabIndicatorColor" format="color" />
+        <attr name="tabTextColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="ChangeColorIconWithText">
+        <attr name="custom_icon"></attr>
+        <attr name="custom_color"></attr>
+        <attr name="custom_text"></attr>
+        <attr name="custom_text_size"></attr>
+    </declare-styleable>
+    <attr name="custom_icon" format="reference"></attr>
+    <attr name="custom_color" format="color"></attr>
+    <attr name="custom_text" format="string"></attr>
+    <attr name="custom_text_size" format="dimension"></attr>
+    <!--水波按钮的效果属性-->
+    <declare-styleable name="RippleView">
+        <attr name="ripple_Color" format="color"/>
+        <attr name="alpha_Factor" format="float"/>
+        <attr name="just_hover" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="expandable_selector">
+        <attr name="hide_background_if_collapsed" format="boolean"/>
+        <attr name="animation_duration" format="integer"/>
+        <attr name="hide_first_item_on_collapse" format="boolean"/>
+        <attr name="expand_interpolator" format="reference"/>
+        <attr name="collapse_interpolator" format="reference"/>
+        <attr name="container_interpolator" format="reference"/>
+    </declare-styleable>
+
+    <attr name="expandableItemStyle"/>
+</resources>

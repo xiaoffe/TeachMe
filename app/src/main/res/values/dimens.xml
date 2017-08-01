@@ -1,0 +1,31 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="item_size">40dp</dimen>
+    <dimen name="item_margin">2dp</dimen>
+    <dimen name="item_text_size">18sp</dimen>
+    <dimen name="item_text_size_small">9sp</dimen>
+    <dimen name="expandable_selector_margin">8dp</dimen>
+    <dimen name="background_radius">100dp</dimen>
+
+    <dimen name="syncpad_action_margin">10dp</dimen>
+
+    <dimen name="tabbar_hight">50dp</dimen>
+    <dimen name="editext_height">48dp</dimen>
+
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">5dp</dimen>
+    <dimen name="three_grid_unit">8dp</dimen>
+    <dimen name="share_pic_width">56dp</dimen>
+
+
+    <dimen name="gudieview_width">6dp</dimen>
+    <dimen name="gudieview_heigh">6dp</dimen>
+
+</resources>

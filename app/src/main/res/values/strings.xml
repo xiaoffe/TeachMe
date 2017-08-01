@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">TeachMe</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_splash">写和画</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login_success">login success</string>
+    <string name="login">登录</string>
+    <string name="Username">账号</string>
+    <string name="Password">密码</string>
+    <string name="forgot_your_password">忘记密码了 ?</string>
+    <string name="go">GO</string>
+    <string name="repeat_password">再次输入密码</string>
+    <string name="next">GO</string>
+    <string name="register">注册</string>
+    <string name="title_activity_register">注册</string>
+    <string name="pager_empty">空空如也</string>
+
+    <string name="online_people">在线</string>
+    <string name="tab_message">消息</string>
+    <string name="tab_datas_package">资料</string>
+
+    <string name="msg_title">提示</string>
+</resources>
