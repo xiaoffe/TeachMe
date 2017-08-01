@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.tencent.ilivesdk.ILiveCallBack;
+import com.tencent.ilivesdk.core.ILiveLoginManager;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -12,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ilive.model.UserInfo;
 import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -20,6 +25,7 @@ import rx.schedulers.Schedulers;
 import yxf.teachme.R;
 import yxf.teachme.model.ZhuangbiImage;
 import yxf.teachme.network.Network;
+import yxf.teachme.util.WaitDialogUtil;
 
 
 public class SplashActivity extends BaseActivity {
@@ -32,6 +38,7 @@ public class SplashActivity extends BaseActivity {
         ButterKnife.bind(this);
         initView();
         initEvent();
+        autoLogin();
     }
 //    @OnClick(R.id.versionCode)
 //    void clicktTest(){
@@ -44,17 +51,6 @@ public class SplashActivity extends BaseActivity {
         getVersionCode();
     }
     private void initEvent(){
-        // for test
-        Observable.timer(3*1000, TimeUnit.MILLISECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Long>() {
-                    @Override
-                    public void call(Long aLong) {
-                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                    }
-                });
 
     }
     private void getVersionCode(){
@@ -79,5 +75,37 @@ public class SplashActivity extends BaseActivity {
                     }
                 });
     }
+    private void autoLogin(){
+        UserInfo.getInstance().getCache(SplashActivity.this);
+        String userName = UserInfo.getInstance().getAccount();
+        String password = UserInfo.getInstance().getPassword();
+        Toast.makeText(SplashActivity.this, userName+" "+password, Toast.LENGTH_LONG).show();
+        if(userName!=null && password!=null){
+            ILiveLoginManager.getInstance().tlsLoginAll(userName, password, new ILiveCallBack() {
+                @Override
+                public void onSuccess(Object data) {
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
 
+                @Override
+                public void onError(String module, int errCode, String errMsg) {
+                    Toast.makeText(SplashActivity.this, "登录出错" + errCode + "" + errMsg, Toast.LENGTH_LONG).show();
+                }
+            });
+        }else{
+            Observable.timer(3*1000, TimeUnit.MILLISECONDS)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Action1<Long>() {
+                        @Override
+                        public void call(Long aLong) {
+                            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
+        }
+
+    }
 }

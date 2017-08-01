@@ -28,6 +28,7 @@ import yxf.teachme.R;
 import yxf.teachme.model.LoginUserInfo;
 import yxf.teachme.network.Network;
 import yxf.teachme.util.MD5;
+import yxf.teachme.util.WaitDialogUtil;
 
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";
@@ -75,7 +76,6 @@ public class LoginActivity extends BaseActivity {
         UserInfo.getInstance().getCache(getApplicationContext());
         etUsername.setText(UserInfo.getInstance().getAccount());
         etPassword.setText(UserInfo.getInstance().getPassword());
-
     }
 
     @OnClick({R.id.bt_go, R.id.fab})
@@ -134,16 +134,21 @@ public class LoginActivity extends BaseActivity {
             return;
         }
 
+        WaitDialogUtil.waitDialog(this, "登录中...");
+
         ILiveLoginManager.getInstance().tlsLoginAll(strAccount, strPwd, new ILiveCallBack() {
             @Override
             public void onSuccess(Object data) {
+                WaitDialogUtil.dismiss();
                 afterLogin();
             }
 
             @Override
             public void onError(String module, int errCode, String errMsg) {
+                WaitDialogUtil.dismiss();
                 Toast.makeText(LoginActivity.this, "登录出错" + errCode + "" + errMsg, Toast.LENGTH_LONG).show();
             }
         });
     }
+
 }
