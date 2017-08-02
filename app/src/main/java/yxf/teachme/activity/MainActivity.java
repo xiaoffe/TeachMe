@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.tencent.ilivesdk.ILiveCallBack;
 import com.tencent.ilivesdk.core.ILiveLoginManager;
@@ -15,6 +16,7 @@ import com.tencent.ilivesdk.core.ILiveLoginManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,9 +24,11 @@ import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 import yxf.teachme.R;
 import yxf.teachme.factory.FragmentFactory;
@@ -185,5 +189,24 @@ public class MainActivity extends BaseActivity {
     private void startService(){
         Intent intent = new Intent(MainActivity.this, MsgChatService.class);
         startService(intent);
+    }
+    private boolean enableDoubleClick = false;
+    @Override
+    public void onBackPressed() {
+        if(enableDoubleClick){
+            super.onBackPressed();
+        }else{
+            enableDoubleClick = true;
+            Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_LONG).show();
+            Observable.timer(3*1000, TimeUnit.MILLISECONDS)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Action1<Long>() {
+                        @Override
+                        public void call(Long aLong) {
+                            enableDoubleClick = false;
+                        }
+                    });
+        }
+
     }
 }
